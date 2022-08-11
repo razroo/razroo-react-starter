@@ -1,0 +1,73 @@
+{
+  "root": "apps/razroo-react-starter",
+  "sourceRoot": "apps/razroo-react-starter/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/razroo-react-starter",
+        "index": "apps/razroo-react-starter/src/index.html",
+        "baseHref": "/",
+        "main": "apps/razroo-react-starter/src/main.tsx",
+        "polyfills": "apps/razroo-react-starter/src/polyfills.ts",
+        "tsConfig": "apps/razroo-react-starter/tsconfig.app.json",
+        "assets": [
+          "apps/razroo-react-starter/src/favicon.ico",
+          "apps/razroo-react-starter/src/assets"
+        ],
+        "styles": ["apps/razroo-react-starter/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/razroo-react-starter/src/environments/environment.ts",
+              "with": "apps/razroo-react-starter/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "razroo-react-starter:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "razroo-react-starter:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/razroo-react-starter/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/razroo-react-starter"],
+      "options": {
+        "jestConfig": "apps/razroo-react-starter/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

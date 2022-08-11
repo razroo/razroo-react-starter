@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "razroo-react-starter": "apps/razroo-react-starter",
+    "razroo-react-starter-e2e": "apps/razroo-react-starter-e2e"
+  }
+}
